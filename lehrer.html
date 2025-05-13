@@ -30,12 +30,13 @@
     </style>
 </head>
 <body>
-    <h1>Zufälliger Emoji Generator</h1>
+    <h1>Bewertungshilfe</h1>
     <div id="emoji">😀</div>
-    <button onclick="generateEmoji()">Neues Emoji</button>
+    <button onclick="generateEmoji()">Bewerten</button>
 
     <script>
-        const emojis = ['😀', '😂', '🥳', '😎', '🤖', '🐱', '🌈', '🍕', '🚀', '🎉', '🦄', '🍀', '🌍', '⚽', '🎸'];
+        // Nur Smileys: glücklich, traurig, neutral
+        const emojis = ['😀', '😐', '😢'];
         let animationInterval = null;
 
         function generateEmoji() {
@@ -55,7 +56,7 @@
                 count++;
                 if (count >= maxCount) {
                     clearInterval(animationInterval);
-                    // Am Ende immer ein Smiley zeigen
+                    // Am Ende immer ein glücklicher Smiley zeigen
                     setTimeout(() => {
                         emojiDiv.textContent = '😀';
                         emojiDiv.style.transform = 'scale(1.2)';
