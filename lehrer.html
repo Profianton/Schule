@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Emoji Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 80px;
+            background: #f0f0f0;
+        }
+        #emoji {
+            font-size: 5rem;
+            margin: 30px 0;
+            transition: transform 0.2s;
+        }
+        button {
+            padding: 12px 28px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 8px;
+            background: #4caf50;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #388e3c;
+        }
+    </style>
+</head>
+<body>
+    <h1>Zufälliger Emoji Generator</h1>
+    <div id="emoji">😀</div>
+    <button onclick="generateEmoji()">Neues Emoji</button>
+
+    <script>
+        const emojis = ['😀', '😂', '🥳', '😎', '🤖', '🐱', '🌈', '🍕', '🚀', '🎉', '🦄', '🍀', '🌍', '⚽', '🎸'];
+        let animationInterval = null;
+
+        function generateEmoji() {
+            const emojiDiv = document.getElementById('emoji');
+            let count = 0;
+            const maxCount = 15; // Anzahl der schnellen Emoji-Wechsel
+
+            if (animationInterval) {
+                clearInterval(animationInterval);
+            }
+
+            animationInterval = setInterval(() => {
+                const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+                emojiDiv.textContent = randomEmoji;
+                emojiDiv.style.transform = 'scale(1.2)';
+                setTimeout(() => emojiDiv.style.transform = 'scale(1)', 100);
+                count++;
+                if (count >= maxCount) {
+                    clearInterval(animationInterval);
+                    // Am Ende immer ein Smiley zeigen
+                    setTimeout(() => {
+                        emojiDiv.textContent = '😀';
+                        emojiDiv.style.transform = 'scale(1.2)';
+                        setTimeout(() => emojiDiv.style.transform = 'scale(1)', 150);
+                    }, 100);
+                }
+            }, 80);
+        }
+    </script>
+</body>
+</html>
