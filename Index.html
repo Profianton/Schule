@@ -1,3 +1,27 @@
-
-<a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.youtube.com/watch%3Fv%3DdQw4w9WgXcQ&ved=2ahUKEwjx05nh0aCNAxUsSvEDHWQUDEQQwqsBegQIEhAG&usg=AOvVaw0aHtehaphMhOCAkCydRLZU" style="font-size: 1.5em;">Schueler</a><br>
-<a href="lehrer.html" style="font-size: 1.5em;">Lehrer</a>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Schule</title>
+</head>
+<body>
+<a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.youtube.com/watch%3Fv%3DdQw4w9WgXcQ&ved=2ahUKEwjx05nh0aCNAxUsSvEDHWQUDEQQwqsBegQIEhAG&usg=AOvVaw0aHtehaphMhOCAkCydRLZU
+">Schüler</a><br>
+<a href="lehrer.html">Lehrer</a>
+<script>
+document.querySelectorAll('a').forEach(link => {
+    //link.style.display = 'inline-block';
+    link.style.width = document.body.clientWidth + 'px';
+    // Measure the page width
+    const pageWidth = document.body.clientWidth;
+    // Set a temporary font size to measure the link's natural width
+    link.style.fontSize = '1vw';
+    // Measure the link's natural width
+    const naturalWidth = link.offsetWidth;
+    // Calculate the scale factor needed to fit the link to the page width
+    const scale = pageWidth / naturalWidth;
+    // Set the font size so the link spans the page width
+    link.style.fontSize = (scale-0.01) + 'vw';
+});
+</script>
+</body></html>
